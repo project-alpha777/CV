@@ -217,6 +217,16 @@
         font-size: 1.2em;
     }
 
+    /* RODO Clause */
+    .rodo-clause {
+        font-size: 0.75em;
+        color: #7f8c8d;
+        text-align: center;
+        margin-top: auto; /* Pushes it to the bottom */
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
     /* Print Specific Styles */
     @media print {
         .lang-toggle {
@@ -261,6 +271,10 @@
         }
         .contact-info {
             justify-content: flex-start;
+        }
+        .rodo-clause {
+            margin-top: 15px; /* Adjust margin for print */
+            padding-top: 15px;
         }
     }
 </style>
@@ -322,10 +336,10 @@
             <div class="company-name" data-lang-en="Essencemediacom, Warsaw, Poland" data-lang-pl="Essencemediacom, Warszawa, Polska">Essencemediacom, Warsaw, Poland</div>
             <div class="duration" data-lang-en="2023 – Present" data-lang-pl="2023 – Obecnie">2023 – Present</div>
             <ul class="responsibilities">
-                <li data-lang-en="Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print)." data-lang-pl="[Polish Translation Here]">Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print).</li>
-                <li data-lang-en="Analyzing campaign performance and providing strategic recommendations for optimization." data-lang-pl="[Polish Translation Here]">Analyzing campaign performance and providing strategic recommendations for optimization.</li>
-                <li data-lang-en="Coordinating with international teams and clients to ensure seamless campaign execution." data-lang-pl="[Polish Translation Here]">Coordinating with international teams and clients to ensure seamless campaign execution.</li>
-                <li data-lang-en="Managing budgets and negotiating with media vendors." data-lang-pl="[Polish Translation Here]">Managing budgets and negotiating with media vendors.</li>
+                <li data-lang-en="Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print)." data-lang-pl="Planowanie, zakup, optymalizacja i monitoring kampanii reklamowych w różnych kanałach mediów (TV, digital, prasa).">Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print).</li>
+                <li data-lang-en="Analyzing campaign performance and providing strategic recommendations for optimization." data-lang-pl="Analiza wyników kampanii i dostarczanie strategicznych rekomendacji optymalizacyjnych.">Analyzing campaign performance and providing strategic recommendations for optimization.</li>
+                <li data-lang-en="Coordinating with international teams and clients to ensure seamless campaign execution." data-lang-pl="Koordynacja z międzynarodowymi zespołami i klientami w celu zapewnienia płynnej realizacji kampanii.">Coordinating with international teams and clients to ensure seamless campaign execution.</li>
+                <li data-lang-en="Managing budgets and negotiating with media vendors." data-lang-pl="Zarządzanie budżetami i negocjacje z dostawcami mediów.">Managing budgets and negotiating with media vendors.</li>
             </ul>
         </div>
         <div class="job-entry">
@@ -333,10 +347,10 @@
             <div class="company-name" data-lang-en="Essencemediacom, Warsaw, Poland" data-lang-pl="Essencemediacom, Warszawa, Polska">Essencemediacom, Warsaw, Poland</div>
             <div class="duration" data-lang-en="2022 – 2023" data-lang-pl="2022 – 2023">2022 – 2023</div>
             <ul class="responsibilities">
-                <li data-lang-en="Assisted in the development and implementation of media plans." data-lang-pl="[Polish Translation Here]">Assisted in the development and implementation of media plans.</li>
-                <li data-lang-en="Conducted market research and competitive analysis." data-lang-pl="[Polish Translation Here]">Conducted market research and competitive analysis.</li>
-                <li data-lang-en="Prepared reports on campaign delivery and initial performance metrics." data-lang-pl="[Polish Translation Here]">Prepared reports on campaign delivery and initial performance metrics.</li>
-                <li data-lang-en="Supported senior planners in day-to-day media operations." data-lang-pl="[Polish Translation Here]">Supported senior planners in day-to-day media operations.</li>
+                <li data-lang-en="Assisted in the development and implementation of media plans." data-lang-pl="Wsparcie w tworzeniu i wdrażaniu planów mediowych.">Assisted in the development and implementation of media plans.</li>
+                <li data-lang-en="Conducted market research and competitive analysis." data-lang-pl="Przeprowadzanie badań rynkowych i analizy konkurencji.">Conducted market research and competitive analysis.</li>
+                <li data-lang-en="Prepared reports on campaign delivery and initial performance metrics." data-lang-pl="Przygotowywanie raportów dotyczących realizacji kampanii i wstępnych wskaźników wydajności.">Prepared reports on campaign delivery and initial performance metrics.</li>
+                <li data-lang-en="Supported senior planners in day-to-day media operations." data-lang-pl="Wsparcie starszych planerów w codziennych operacjach mediowych.">Supported senior planners in day-to-day media operations.</li>
             </ul>
         </div>
     </section>
@@ -371,6 +385,13 @@
             <i class="fas fa-trophy"></i> <span data-lang-en="Effie 2024 – Żywiec Zdrój – Bronze in the Non-Alcoholic Beverages category" data-lang-pl="Effie 2024 – Żywiec Zdrój – Brąz w kategorii Napoje Bezalkoholowe">Effie 2024 – Żywiec Zdrój – Bronze in the Non-Alcoholic Beverages category</span>
         </div>
     </section>
+
+    <div class="rodo-clause">
+        <span data-lang-en="I agree to the processing of my personal data contained in my job offer for the needs necessary to carry out the recruitment process (in accordance with the Act of August 29, 1997 on the protection of personal data; Journal of Laws of 2002, No. 101, item 926, as amended)."
+              data-lang-pl="Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w mojej ofercie pracy dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych; Dz. U. z 2002 r. Nr 101, poz. 926, ze zm.).">
+            I agree to the processing of my personal data contained in my job offer for the needs necessary to carry out the recruitment process (in accordance with the Act of August 29, 1997 on the protection of personal data; Journal of Laws of 2002, No. 101, item 926, as amended).
+        </span>
+    </div>
 </div>
 
 <script>
@@ -379,7 +400,6 @@
         const translatableElements = document.querySelectorAll('[data-lang-en], [data-lang-pl]');
 
         // Determine initial language from localStorage or default to English
-        // If localStorage is not available or empty, default to 'en'
         let currentLang = localStorage.getItem('cvLang') || 'en';
 
         const updateContent = () => {

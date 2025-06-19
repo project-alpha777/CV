@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wiktoria Ożóg - CV</title>
+<title data-lang-en="Wiktoria Ożóg - CV" data-lang-pl="Wiktoria Ożóg - CV">Wiktoria Ożóg - CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -30,22 +30,45 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+        position: relative; /* For positioning the language toggle */
+    }
+
+    /* Language Toggle Button */
+    .lang-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
+        z-index: 100; /* Ensure it's above other content */
+    }
+
+    .lang-toggle:hover {
+        background-color: #2980b9;
     }
 
     /* Header */
     .header {
         display: flex;
         align-items: center;
-        justify-content: space-between; /* Pushes photo to one side, text to other */
+        justify-content: space-between;
         margin-bottom: 30px;
         padding-bottom: 15px;
         border-bottom: 1px solid #eee;
     }
 
     .header-content {
-        flex-grow: 1; /* Allows content to take available space */
-        text-align: center; /* Center text within its flex item */
-        margin-right: 20px; /* Space between text and photo */
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 20px;
     }
 
     .header h1 {
@@ -58,7 +81,7 @@
 
     .contact-info {
         display: flex;
-        justify-content: center; /* Center contact info below name */
+        justify-content: center;
         flex-wrap: wrap;
         gap: 15px 30px;
         font-size: 0.95em;
@@ -72,7 +95,7 @@
 
     .contact-info i {
         margin-right: 8px;
-        color: #3498db; /* A modern blue for icons */
+        color: #3498db;
         font-size: 1.1em;
     }
 
@@ -88,13 +111,13 @@
 
     /* Profile Photo */
     .profile-photo {
-        width: 120px; /* Size of the photo */
+        width: 120px;
         height: 120px;
-        border-radius: 50%; /* Makes it circular */
-        object-fit: cover; /* Ensures the image covers the circle without distortion */
-        border: 3px solid #3498db; /* Subtle border matching accent color */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-        flex-shrink: 0; /* Prevents photo from shrinking */
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #3498db;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
     }
 
     /* Sections */
@@ -109,8 +132,8 @@
         color: #2c3e50;
         margin-bottom: 15px;
         padding-bottom: 5px;
-        border-bottom: 2px solid #3498db; /* Blue underline for titles */
-        display: inline-block; /* To make border-bottom only under text */
+        border-bottom: 2px solid #3498db;
+        display: inline-block;
     }
 
     /* Profile */
@@ -128,14 +151,14 @@
     }
 
     .skill-item {
-        background-color: #ecf0f1; /* Light gray background for skill tags */
+        background-color: #ecf0f1;
         color: #333;
         padding: 8px 12px;
         border-radius: 5px;
         font-size: 0.9em;
         display: flex;
         align-items: center;
-        white-space: nowrap; /* Prevent wrapping for single skill */
+        white-space: nowrap;
     }
 
     .skill-item i {
@@ -190,12 +213,15 @@
 
     .award-item i {
         margin-right: 10px;
-        color: #f39c12; /* Gold color for awards */
+        color: #f39c12;
         font-size: 1.2em;
     }
 
     /* Print Specific Styles */
     @media print {
+        .lang-toggle {
+            display: none; /* Hide the toggle button when printing */
+        }
         body {
             background-color: #fff;
             margin: 0;
@@ -204,7 +230,7 @@
         .cv-container {
             box-shadow: none;
             margin: 0;
-            padding: 20mm; /* Standard print margins */
+            padding: 20mm;
             width: 210mm;
             min-height: 297mm;
         }
@@ -220,29 +246,29 @@
         .job-entry, .education-entry {
             margin-bottom: 15px;
         }
-        /* Ensure background colors are printed */
         .skill-item {
             -webkit-print-color-adjust: exact;
             color-adjust: exact;
         }
-        /* Adjust header layout for print if needed, though flex should handle it */
         .header {
-            flex-direction: row; /* Ensure it stays row for print */
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
         .header-content {
-            text-align: left; /* Align text left in print for better readability next to photo */
+            text-align: left;
             margin-right: 20px;
         }
         .contact-info {
-            justify-content: flex-start; /* Align contact info left */
+            justify-content: flex-start;
         }
     }
 </style>
 </head>
 <body>
 <div class="cv-container">
+    <button id="langToggle" class="lang-toggle" data-lang-en="PLN" data-lang-pl="ENG">PLN</button>
+
     <header class="header">
         <div class="header-content">
             <h1>Wiktoria Ożóg</h1>
@@ -250,30 +276,31 @@
                 <div><i class="fas fa-envelope"></i> <a href="mailto:wiktoriaozog2000@gmail.com">wiktoriaozog2000@gmail.com</a></div>
                 <div><i class="fas fa-phone-alt"></i> <a href="tel:+48604527521">+48 604 527 521</a></div>
                 <div><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/wiktoriavictoriaozog/" target="_blank">LinkedIn</a></div>
-                <div><i class="fas fa-map-marker-alt"></i> Poland</div>
+                <div><i class="fas fa-map-marker-alt"></i> <span data-lang-en="Poland" data-lang-pl="Polska">Poland</span></div>
             </div>
         </div>
         <img src="IMG_8013.JPG" alt="Wiktoria Ożóg Profile Photo" class="profile-photo">
     </header>
 
     <section class="section profile">
-        <h2 class="section-title">Profile</h2>
-        <p>
-            I am developing my skills in the digital and IT field, currently taking part in an AI implementation project within my team and actively sharing knowledge about AI applications in my company. I am expanding my competencies through ongoing AI training and am in the process of completing the Girls Go IT course. My main professional interests are UX and UI design—areas I am passionate about and would like to specialise in as I grow my career. I am motivated by innovation, learning, and the opportunity to help create better user experiences.
+        <h2 class="section-title" data-lang-en="Profile" data-lang-pl="Profil">Profile</h2>
+        <p data-lang-en="I’m currently developing my skills as part of the AI Revolution team, gaining knowledge about artificial intelligence and its applications. I am a psychology student, planning to start computer science studies. I have experience in media (purchasing, optimizing, and monitoring advertising campaigns). I am currently growing in IT through the Girls Go IT course. I am particularly interested in front-end development, design, Linux, and Python. I am looking for my first challenges as a junior front-end developer."
+           data-lang-pl="Obecnie rozwijam swoje umiejętności w zespole AI Revolution, zdobywając wiedzę na temat sztucznej inteligencji i jej zastosowań. Jestem studentką psychologii, planującą rozpocząć studia informatyczne. Posiadam doświadczenie w mediach (zakup, optymalizacja i monitoring kampanii reklamowych). Obecnie rozwijam się w IT poprzez kurs Girls Go IT. Szczególnie interesuje mnie rozwój front-end, design, Linux i Python. Szukam swoich pierwszych wyzwań jako młodszy programista front-end.">
+            I’m currently developing my skills as part of the AI Revolution team, gaining knowledge about artificial intelligence and its applications. I am a psychology student, planning to start computer science studies. I have experience in media (purchasing, optimizing, and monitoring advertising campaigns). I am currently growing in IT through the Girls Go IT course. I am particularly interested in front-end development, design, Linux, and Python. I am looking for my first challenges as a junior front-end developer.
         </p>
     </section>
 
     <section class="section skills">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title" data-lang-en="Skills" data-lang-pl="Umiejętności">Skills</h2>
         <div class="skills-list">
-            <div class="skill-item"><i class="fas fa-chart-line"></i> Campaign Optimization & Analytics</div>
+            <div class="skill-item"><i class="fas fa-chart-line"></i> <span data-lang-en="Campaign Optimization & Analytics" data-lang-pl="Optymalizacja i Analiza Kampanii">Campaign Optimization & Analytics</span></div>
             <div class="skill-item"><i class="fas fa-code"></i> HTML</div>
             <div class="skill-item"><i class="fas fa-paint-brush"></i> CSS</div>
-            <div class="skill-item"><i class="fas fa-laptop-code"></i> JavaScript (Basic)</div>
+            <div class="skill-item"><i class="fas fa-laptop-code"></i> <span data-lang-en="JavaScript (Basic)" data-lang-pl="JavaScript (Podstawy)">JavaScript (Basic)</span></div>
             <div class="skill-item"><i class="fab fa-linux"></i> Linux</div>
-            <div class="skill-item"><i class="fab fa-python"></i> Python (Basic)</div>
-            <div class="skill-item"><i class="fas fa-globe"></i> Advanced English</div>
-            <div class="skill-item"><i class="fas fa-car"></i> Driving License (B)</div>
+            <div class="skill-item"><i class="fab fa-python"></i> <span data-lang-en="Python (Basic)" data-lang-pl="Python (Podstawy)">Python (Basic)</span></div>
+            <div class="skill-item"><i class="fas fa-globe"></i> <span data-lang-en="Advanced English" data-lang-pl="Angielski Zaawansowany">Advanced English</span></div>
+            <div class="skill-item"><i class="fas fa-car"></i> <span data-lang-en="Driving License (B)" data-lang-pl="Prawo Jazdy Kat. B">Driving License (B)</span></div>
             <div class="skill-item"><i class="fas fa-file-excel"></i> MS Office</div>
             <div class="skill-item"><i class="fab fa-google"></i> Google Ads</div>
             <div class="skill-item"><i class="fab fa-youtube"></i> YouTube</div>
@@ -283,67 +310,102 @@
             <div class="skill-item"><i class="fas fa-chart-bar"></i> Google Data Studio</div>
             <div class="skill-item"><i class="fas fa-chart-area"></i> Google Analytics</div>
             <div class="skill-item"><i class="fas fa-ad"></i> DV360</div>
-            <div class="skill-item"><i class="fas fa-handshake"></i> Empathy & Interpersonal Skills</div>
-            <div class="skill-item"><i class="fas fa-robot"></i> AI Tools (Gemini, ChatGPT, etc.)</div>
+            <div class="skill-item"><i class="fas fa-handshake"></i> <span data-lang-en="Empathy & Interpersonal Skills" data-lang-pl="Empatia i Umiejętności Interpersonalne">Empathy & Interpersonal Skills</span></div>
+            <div class="skill-item"><i class="fas fa-robot"></i> <span data-lang-en="AI Tools (Gemini, ChatGPT, etc.)" data-lang-pl="Narzędzia AI (Gemini, ChatGPT, itp.)">AI Tools (Gemini, ChatGPT, etc.)</span></div>
         </div>
     </section>
 
     <section class="section experience">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title" data-lang-en="Experience" data-lang-pl="Doświadczenie">Experience</h2>
         <div class="job-entry">
-            <div class="job-title">International Media Communications Planner | TV Buyer | Media Coordinator</div>
-            <div class="company-name">Essencemediacom, Warsaw, Poland</div>
-            <div class="duration">2023 – Present</div>
+            <div class="job-title" data-lang-en="International Media Communications Planner | TV Buyer | Media Coordinator" data-lang-pl="Międzynarodowy Planer Komunikacji Medialnej | Kupiec TV | Koordynator Mediów">International Media Communications Planner | TV Buyer | Media Coordinator</div>
+            <div class="company-name" data-lang-en="Essencemediacom, Warsaw, Poland" data-lang-pl="Essencemediacom, Warszawa, Polska">Essencemediacom, Warsaw, Poland</div>
+            <div class="duration" data-lang-en="2023 – Present" data-lang-pl="2023 – Obecnie">2023 – Present</div>
             <ul class="responsibilities">
-                <li>Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print).</li>
-                <li>Analyzing campaign performance and providing strategic recommendations for optimization.</li>
-                <li>Coordinating with international teams and clients to ensure seamless campaign execution.</li>
-                <li>Managing budgets and negotiating with media vendors.</li>
+                <li data-lang-en="Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print)." data-lang-pl="Planowanie, zakup, optymalizacja i monitoring kampanii reklamowych w różnych kanałach mediów (TV, digital, prasa).">Planning, purchasing, optimizing, and monitoring advertising campaigns across various media channels (TV, digital, print).</li>
+                <li data-lang-en="Analyzing campaign performance and providing strategic recommendations for optimization." data-lang-pl="Analiza wyników kampanii i dostarczanie strategicznych rekomendacji optymalizacyjnych.">Analyzing campaign performance and providing strategic recommendations for optimization.</li>
+                <li data-lang-en="Coordinating with international teams and clients to ensure seamless campaign execution." data-lang-pl="Koordynacja z międzynarodowymi zespołami i klientami w celu zapewnienia płynnej realizacji kampanii.">Coordinating with international teams and clients to ensure seamless campaign execution.</li>
+                <li data-lang-en="Managing budgets and negotiating with media vendors." data-lang-pl="Zarządzanie budżetami i negocjacje z dostawcami mediów.">Managing budgets and negotiating with media vendors.</li>
             </ul>
         </div>
         <div class="job-entry">
-            <div class="job-title">Junior Media Planner</div>
-            <div class="company-name">Essencemediacom, Warsaw, Poland</div>
-            <div class="duration">2022 – 2023</div>
+            <div class="job-title" data-lang-en="Junior Media Planner" data-lang-pl="Młodszy Planer Mediów">Junior Media Planner</div>
+            <div class="company-name" data-lang-en="Essencemediacom, Warsaw, Poland" data-lang-pl="Essencemediacom, Warszawa, Polska">Essencemediacom, Warsaw, Poland</div>
+            <div class="duration" data-lang-en="2022 – 2023" data-lang-pl="2022 – 2023">2022 – 2023</div>
             <ul class="responsibilities">
-                <li>Assisted in the development and implementation of media plans.</li>
-                <li>Conducted market research and competitive analysis.</li>
-                <li>Prepared reports on campaign delivery and initial performance metrics.</li>
-                <li>Supported senior planners in day-to-day media operations.</li>
+                <li data-lang-en="Assisted in the development and implementation of media plans." data-lang-pl="Wsparcie w tworzeniu i wdrażaniu planów mediowych.">Assisted in the development and implementation of media plans.</li>
+                <li data-lang-en="Conducted market research and competitive analysis." data-lang-pl="Przeprowadzanie badań rynkowych i analizy konkurencji.">Conducted market research and competitive analysis.</li>
+                <li data-lang-en="Prepared reports on campaign delivery and initial performance metrics." data-lang-pl="Przygotowywanie raportów dotyczących realizacji kampanii i wstępnych wskaźników wydajności.">Prepared reports on campaign delivery and initial performance metrics.</li>
+                <li data-lang-en="Supported senior planners in day-to-day media operations." data-lang-pl="Wsparcie starszych planerów w codziennych operacjach mediowych.">Supported senior planners in day-to-day media operations.</li>
             </ul>
         </div>
     </section>
 
     <section class="section education">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title" data-lang-en="Education" data-lang-pl="Edukacja">Education</h2>
         <div class="education-entry">
-            <div class="education-degree">Psychology (Clinical and Personality Psychology), Long-cycle Master’s Degree Program</div>
-            <div class="institution-name">National Louis University, Nowy Sącz, Poland</div>
-            <div class="duration">2025 - 2030</div>
+            <div class="education-degree" data-lang-en="Psychology (Clinical and Personality Psychology), Long-cycle Master’s Degree Program" data-lang-pl="Psychologia (Psychologia Kliniczna i Osobowości), Jednolite Studia Magisterskie">Psychology (Clinical and Personality Psychology), Long-cycle Master’s Degree Program</div>
+            <div class="institution-name" data-lang-en="National Louis University, Nowy Sącz, Poland" data-lang-pl="Wyższa Szkoła Biznesu - National Louis University, Nowy Sącz, Polska">National Louis University, Nowy Sącz, Poland</div>
+            <div class="duration" data-lang-en="2025 - 2030" data-lang-pl="2025 - 2030">2025 - 2030</div>
         </div>
         <div class="education-entry">
-            <div class="education-degree">AI in Digital Marketing (Certificate)</div>
-            <div class="institution-name">University of Maryland, College Park</div>
-            <div class="duration">2025</div>
+            <div class="education-degree" data-lang-en="AI in Digital Marketing (Certificate)" data-lang-pl="AI w Marketingu Cyfrowym (Certyfikat)">AI in Digital Marketing (Certificate)</div>
+            <div class="institution-name" data-lang-en="University of Maryland, College Park" data-lang-pl="University of Maryland, College Park">University of Maryland, College Park</div>
+            <div class="duration" data-lang-en="2025" data-lang-pl="2025">2025</div>
         </div>
         <div class="education-entry">
-            <div class="education-degree">Girls Go IT Course (Programming, Linux, UNIX, UX/UI, Front-end)</div>
-            <div class="institution-name">AGH University of Science and Technology, Kraków, Poland</div>
-            <div class="duration">2024 - 2025</div>
+            <div class="education-degree" data-lang-en="Girls Go IT Course (Programming, Linux, UNIX, UX/UI, Front-end)" data-lang-pl="Kurs Girls Go IT (Programowanie, Linux, UNIX, UX/UI, Front-end)">Girls Go IT Course (Programming, Linux, UNIX, UX/UI, Front-end)</div>
+            <div class="institution-name" data-lang-en="AGH University of Science and Technology, Kraków, Poland" data-lang-pl="Akademia Górniczo-Hutnicza, Kraków, Polska">AGH University of Science and Technology, Kraków, Poland</div>
+            <div class="duration" data-lang-en="2024 - 2025" data-lang-pl="2024 - 2025">2024 - 2025</div>
         </div>
         <div class="education-entry">
-            <div class="education-degree">High School (Mathematics, Geography, IT, English)</div>
-            <div class="institution-name">VI High School, Rzeszów, Poland</div>
-            <div class="duration">2016 - 2019</div>
+            <div class="education-degree" data-lang-en="High School (Mathematics, Geography, IT, English)" data-lang-pl="Liceum Ogólnokształcące (Matematyka, Geografia, Informatyka, Angielski)">High School (Mathematics, Geography, IT, English)</div>
+            <div class="institution-name" data-lang-en="VI High School, Rzeszów, Poland" data-lang-pl="VI Liceum Ogólnokształcące, Rzeszów, Polska">VI High School, Rzeszów, Poland</div>
+            <div class="duration" data-lang-en="2016 - 2019" data-lang-pl="2016 - 2019">2016 - 2019</div>
         </div>
     </section>
 
     <section class="section awards">
-        <h2 class="section-title">Awards</h2>
+        <h2 class="section-title" data-lang-en="Awards" data-lang-pl="Nagrody">Awards</h2>
         <div class="award-item">
-            <i class="fas fa-trophy"></i> Effie 2024 – Żywiec Zdrój – Bronze in the Non-Alcoholic Beverages category
+            <i class="fas fa-trophy"></i> <span data-lang-en="Effie 2024 – Żywiec Zdrój – Bronze in the Non-Alcoholic Beverages category" data-lang-pl="Effie 2024 – Żywiec Zdrój – Brąz w kategorii Napoje Bezalkoholowe">Effie 2024 – Żywiec Zdrój – Bronze in the Non-Alcoholic Beverages category</span>
         </div>
     </section>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggleBtn = document.getElementById('langToggle');
+        const translatableElements = document.querySelectorAll('[data-lang-en], [data-lang-pl]');
+
+        // Determine initial language from localStorage or default to English
+        let currentLang = localStorage.getItem('cvLang') || 'en';
+
+        const updateContent = () => {
+            translatableElements.forEach(element => {
+                if (currentLang === 'en') {
+                    element.textContent = element.dataset.langEn || element.textContent;
+                    if (element.placeholder) element.placeholder = element.dataset.langEn || element.placeholder;
+                } else {
+                    element.textContent = element.dataset.langPl || element.textContent;
+                    if (element.placeholder) element.placeholder = element.dataset.langPl || element.placeholder;
+                }
+            });
+            // Update button text
+            langToggleBtn.textContent = (currentLang === 'en') ? 'PLN' : 'ENG';
+            // Update title tag
+            document.title = (currentLang === 'en') ? document.querySelector('title').dataset.langEn : document.querySelector('title').dataset.langPl;
+        };
+
+        // Initial content update
+        updateContent();
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = (currentLang === 'en') ? 'pl' : 'en';
+            localStorage.setItem('cvLang', currentLang); // Save preference
+            updateContent();
+        });
+    });
+</script>
 </body>
 </html>

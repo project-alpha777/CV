@@ -34,10 +34,18 @@
 
     /* Header */
     .header {
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Pushes photo to one side, text to other */
         margin-bottom: 30px;
         padding-bottom: 15px;
         border-bottom: 1px solid #eee;
+    }
+
+    .header-content {
+        flex-grow: 1; /* Allows content to take available space */
+        text-align: center; /* Center text within its flex item */
+        margin-right: 20px; /* Space between text and photo */
     }
 
     .header h1 {
@@ -50,7 +58,7 @@
 
     .contact-info {
         display: flex;
-        justify-content: center;
+        justify-content: center; /* Center contact info below name */
         flex-wrap: wrap;
         gap: 15px 30px;
         font-size: 0.95em;
@@ -76,6 +84,17 @@
 
     .contact-info a:hover {
         color: #3498db;
+    }
+
+    /* Profile Photo */
+    .profile-photo {
+        width: 120px; /* Size of the photo */
+        height: 120px;
+        border-radius: 50%; /* Makes it circular */
+        object-fit: cover; /* Ensures the image covers the circle without distortion */
+        border: 3px solid #3498db; /* Subtle border matching accent color */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        flex-shrink: 0; /* Prevents photo from shrinking */
     }
 
     /* Sections */
@@ -206,25 +225,41 @@
             -webkit-print-color-adjust: exact;
             color-adjust: exact;
         }
+        /* Adjust header layout for print if needed, though flex should handle it */
+        .header {
+            flex-direction: row; /* Ensure it stays row for print */
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-content {
+            text-align: left; /* Align text left in print for better readability next to photo */
+            margin-right: 20px;
+        }
+        .contact-info {
+            justify-content: flex-start; /* Align contact info left */
+        }
     }
 </style>
 </head>
 <body>
 <div class="cv-container">
     <header class="header">
-        <h1>Wiktoria Ożóg</h1>
-        <div class="contact-info">
-            <div><i class="fas fa-envelope"></i> <a href="mailto:wiktoriaozog2000@gmail.com">wiktoriaozog2000@gmail.com</a></div>
-            <div><i class="fas fa-phone-alt"></i> <a href="tel:+48604527521">+48 604 527 521</a></div>
-            <div><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/wiktoriavictoriaozog/" target="_blank">LinkedIn</a></div>
-            <div><i class="fas fa-map-marker-alt"></i> Poland</div>
+        <div class="header-content">
+            <h1>Wiktoria Ożóg</h1>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> <a href="mailto:wiktoriaozog2000@gmail.com">wiktoriaozog2000@gmail.com</a></div>
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+48604527521">+48 604 527 521</a></div>
+                <div><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/wiktoriavictoriaozog/" target="_blank">LinkedIn</a></div>
+                <div><i class="fas fa-map-marker-alt"></i> Poland</div>
+            </div>
         </div>
+        <img src="IMG_8013.JPG" alt="Wiktoria Ożóg Profile Photo" class="profile-photo">
     </header>
 
     <section class="section profile">
         <h2 class="section-title">Profile</h2>
         <p>
-            I am developing my skills in the digital and IT field, currently taking part in an AI implementation project within my team and actively sharing knowledge about AI applications in my company. I am expanding my competencies through ongoing AI training and am in the process of completing the Girls Go IT course. My main professional interests are UX and UI design—areas I am passionate about and would like to specialise in as I grow my career. I am motivated by innovation, learning, and the opportunity to help create better user experiences.
+            I’m currently developing my skills as part of the AI Revolution team, gaining knowledge about artificial intelligence and its applications. I am a psychology student, planning to start computer science studies. I have experience in media (purchasing, optimizing, and monitoring advertising campaigns). I am currently growing in IT through the Girls Go IT course. I am particularly interested in front-end development, design, Linux, and Python. I am looking for my first challenges as a junior front-end developer.
         </p>
     </section>
 

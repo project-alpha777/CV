@@ -6,7 +6,7 @@
 <title>Wiktoria Ożóg - Certificates & Awards</title>
 <!-- Google Fonts: Montserrat for headings, Roboto for body text -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<!-- Font Awesome for icons (e.g., trophy icon) -->
+<!-- Font Awesome for icons (e.g., trophy icon, external link icon) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     /* General Styles */
@@ -70,7 +70,7 @@
         display: block; /* Ensure it takes full width */
     }
 
-    /* Individual Certificate Section (replaces certificate-card) */
+    /* Individual Certificate Section */
     .certificate-section {
         background-color: #ffffff;
         border: 1px solid #e0e0e0; /* Light grey border */
@@ -87,13 +87,53 @@
         margin-bottom: 0; /* No margin after the last certificate section */
     }
 
+    .certificate-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1.4em;
+        color: #2c3e50;
+        margin-bottom: 20px; /* More space below title before PDF */
+        text-align: center;
+        width: 100%; /* Ensure title is centered within its container */
+    }
+
+    .certificate-pdf-embed-wrapper {
+        width: 100%;
+        border: 1px solid #ddd; /* Minimalist frame */
+        border-radius: 5px;
+        overflow: hidden; /* Ensures embed corners are rounded */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Very subtle shadow for the frame */
+        margin-bottom: 20px; /* Space between PDF and details */
+        background-color: #f0f0f0; /* Placeholder background */
+    }
+
     .certificate-pdf-embed {
         width: 100%;
         height: 500px; /* Fixed height for the embedded PDF */
-        border: 1px solid #ddd;
+        display: block; /* Remove extra space below embed */
+    }
+
+    .view-pdf-link {
+        display: inline-flex; /* Use flex for icon and text alignment */
+        align-items: center;
+        background-color: #3498db; /* Blue button background */
+        color: #fff;
+        padding: 10px 15px;
         border-radius: 5px;
-        margin-bottom: 20px; /* Space between PDF and details */
-        background-color: #f0f0f0; /* Placeholder background */
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        margin-top: 15px; /* Space above the link */
+        margin-bottom: 20px; /* Space below the link before details */
+    }
+
+    .view-pdf-link i {
+        margin-right: 8px;
+    }
+
+    .view-pdf-link:hover {
+        background-color: #2980b9; /* Darker blue on hover */
     }
 
     .certificate-details-content {
@@ -101,34 +141,14 @@
         text-align: left; /* Align text to the left within details */
     }
 
-    .certificate-name {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 1.1em;
-        color: #34495e;
-        margin-bottom: 5px;
-    }
-
-    .certificate-title {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 1.4em;
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
-
-    .certificate-description,
-    .certificate-date,
-    .certificate-id {
+    .certificate-detail-item { /* New class for individual detail lines */
         font-size: 0.95em;
         color: #555;
         margin-bottom: 8px;
     }
 
-    .certificate-description strong,
-    .certificate-date strong,
-    .certificate-id strong {
-        color: #333;
+    .certificate-detail-item strong {
+        color: #333; /* Darker color for labels */
         margin-right: 5px;
     }
 
@@ -226,9 +246,7 @@
         .certificate-title {
             font-size: 1.2em;
         }
-        .certificate-description,
-        .certificate-date,
-        .certificate-id {
+        .certificate-detail-item {
             font-size: 0.9em;
         }
         .award-card {
@@ -259,9 +277,7 @@
         .certificate-title {
             font-size: 1.1em;
         }
-        .certificate-description,
-        .certificate-date,
-        .certificate-id {
+        .certificate-detail-item {
             font-size: 0.85em;
         }
     }
@@ -279,36 +295,51 @@
     <!-- Certificate Section 1: Google Ads for Beginners -->
     <div class="certificate-section">
         <h3 class="certificate-title">Google Ads for Beginners</h3>
-        <embed src="Coursera%209GHB5ZVO6V8E.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-pdf-embed-wrapper">
+            <embed src="Coursera%209GHB5ZVO6V8E.pdf" type="application/pdf" class="certificate-pdf-embed">
+        </div>
+        <a href="Coursera%209GHB5ZVO6V8E.pdf" target="_blank" class="view-pdf-link">
+            <i class="fas fa-external-link-alt"></i> View Full PDF
+        </a>
         <div class="certificate-details-content">
-            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-description"><strong>Description:</strong> An online non-credit project authorized by Coursera Project Network and offered through Coursera</p>
-            <p class="certificate-date"><strong>Completion date:</strong> Jun 21, 2025</p>
-            <p class="certificate-id"><strong>Coursera ID:</strong> 9GHB5ZVO6V8E</p>
+            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (Coursera Project Network)</p>
+            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 21, 2025</p>
+            <p class="certificate-detail-item"><strong>ID:</strong> 9GHB5ZVO6V8E</p>
         </div>
     </div>
 
     <!-- Certificate Section 2: Strategic Management -->
     <div class="certificate-section">
         <h3 class="certificate-title">Strategic Management</h3>
-        <embed src="Coursera%20CDI5964WMNRP.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-pdf-embed-wrapper">
+            <embed src="Coursera%20CDI5964WMNRP.pdf" type="application/pdf" class="certificate-pdf-embed">
+        </div>
+        <a href="Coursera%20CDI5964WMNRP.pdf" target="_blank" class="view-pdf-link">
+            <i class="fas fa-external-link-alt"></i> View Full PDF
+        </a>
         <div class="certificate-details-content">
-            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by Copenhagen Business School and offered through Coursera</p>
-            <p class="certificate-date"><strong>Completion date:</strong> Jun 9, 2025</p>
-            <p class="certificate-id"><strong>Coursera ID:</strong> CDI5964WMNRP</p>
+            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (Copenhagen Business School)</p>
+            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 9, 2025</p>
+            <p class="certificate-detail-item"><strong>ID:</strong> CDI5964WMNRP</p>
         </div>
     </div>
 
     <!-- Certificate Section 3: AI in Digital Marketing -->
     <div class="certificate-section">
         <h3 class="certificate-title">AI in Digital Marketing</h3>
-        <embed src="Coursera%20MB9I4VH75BFV.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-pdf-embed-wrapper">
+            <embed src="Coursera%20MB9I4VH75BFV.pdf" type="application/pdf" class="certificate-pdf-embed">
+        </div>
+        <a href="Coursera%20MB9I4VH75BFV.pdf" target="_blank" class="view-pdf-link">
+            <i class="fas fa-external-link-alt"></i> View Full PDF
+        </a>
         <div class="certificate-details-content">
-            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by University of Maryland, College Park and offered through Coursera</p>
-            <p class="certificate-date"><strong>Completion date:</strong> Jun 4, 2025</p>
-            <p class="certificate-id"><strong>File name:</strong> Coursera MB9I4VH75BFV</p>
+            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (University of Maryland, College Park)</p>
+            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 4, 2025</p>
+            <p class="certificate-detail-item"><strong>File:</strong> Coursera MB9I4VH75BFV.pdf</p>
         </div>
     </div>
 

@@ -88,7 +88,7 @@
         overflow: hidden; /* Ensures image corners are rounded with the card */
         display: flex;
         flex-direction: column; /* Stack content vertically */
-        transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Smooth hover effect */
     }
 
     .certificate-card:hover {
@@ -263,12 +263,15 @@
             margin-top: 30px;
             margin-bottom: 20px;
         }
+        .pdf-viewer {
+            height: 400px; /* Adjust height for smaller screens */
+        }
         .certificate-grid {
-            grid-template-columns: 1fr; /* Single column on smaller screens */
+            grid-template-columns: 1fr;
         }
         .certificate-card {
-            max-width: 400px; /* Limit card width on single column layout */
-            margin: 0 auto; /* Center single column cards */
+            max-width: 400px;
+            margin: 0 auto;
         }
         .certificate-title {
             font-size: 1.2em;
@@ -298,10 +301,13 @@
             font-size: 1.8em;
         }
         .certificate-content {
-            padding: 15px;
+            padding: 10px;
         }
         .certificate-preview {
-            height: 180px;
+            height: 120px;
+        }
+        .pdf-viewer {
+            height: 300px;
         }
     }
 </style>
@@ -313,14 +319,21 @@
         <p>A collection of my completed courses, certifications, and distinctions.</p>
     </header>
 
-    <h2 class="section-title">Certificates</h2>
-    <div class="certificate-grid">
+    <!-- PDF Viewer Section -->
+    <section class="pdf-viewer-section" id="pdf-viewer-section">
+        <h2>Selected Certificate</h2>
+        <embed id="pdf-embed" src="" type="application/pdf" class="pdf-viewer">
+        <p id="viewer-message" style="text-align: center; color: #777; margin-top: 15px; font-size: 0.9em;">Click on a certificate below to view its PDF.</p>
+    </section>
+
+    <h2 class="section-title">All Certificates</h2>
+    <div class="certificate-grid" id="certificate-list">
 
         <!-- Certificate Card 1: Google Ads for Beginners -->
-        <div class="certificate-card">
+        <div class="certificate-card" data-pdf="Coursera%209GHB5ZVO6V8E.pdf">
             <div class="certificate-preview">
-                <!-- REPLACE THIS PATH with your actual image path -->
-                <img src="previews/google-ads-preview.jpg" alt="Google Ads Certificate Preview">
+                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
+                <img src="google-ads-preview.jpg" alt="Google Ads Certificate Preview">
             </div>
             <div class="certificate-content">
                 <p class="certificate-name">Wiktoria Ożóg</p>
@@ -328,18 +341,14 @@
                 <p class="certificate-description"><strong>Description:</strong> An online non-credit project authorized by Coursera Project Network and offered through Coursera</p>
                 <p class="certificate-date"><strong>Completion date:</strong> Jun 21, 2025</p>
                 <p class="certificate-id"><strong>Coursera ID:</strong> 9GHB5ZVO6V8E</p>
-                <!-- REPLACE THIS PATH with your actual PDF path -->
-                <a href="pdfs/Coursera-9GHB5ZVO6V8E.pdf" target="_blank" class="certificate-link">
-                    <i class="fas fa-file-pdf"></i> View Certificate (PDF)
-                </a>
             </div>
         </div>
 
         <!-- Certificate Card 2: Strategic Management -->
-        <div class="certificate-card">
+        <div class="certificate-card" data-pdf="Coursera%20CDI5964WMNRP.pdf">
             <div class="certificate-preview">
-                <!-- REPLACE THIS PATH with your actual image path -->
-                <img src="previews/strategic-management-preview.jpg" alt="Strategic Management Certificate Preview">
+                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
+                <img src="strategic-management-preview.jpg" alt="Strategic Management Certificate Preview">
             </div>
             <div class="certificate-content">
                 <p class="certificate-name">Wiktoria Ożóg</p>
@@ -347,18 +356,14 @@
                 <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by Copenhagen Business School and offered through Coursera</p>
                 <p class="certificate-date"><strong>Completion date:</strong> Jun 9, 2025</p>
                 <p class="certificate-id"><strong>Coursera ID:</strong> CDI5964WMNRP</p>
-                <!-- REPLACE THIS PATH with your actual PDF path -->
-                <a href="pdfs/Coursera-CDI5964WMNRP.pdf" target="_blank" class="certificate-link">
-                    <i class="fas fa-file-pdf"></i> View Certificate (PDF)
-                </a>
             </div>
         </div>
 
         <!-- Certificate Card 3: AI in Digital Marketing -->
-        <div class="certificate-card">
+        <div class="certificate-card" data-pdf="Coursera%20MB9I4VH75BFV.pdf">
             <div class="certificate-preview">
-                <!-- REPLACE THIS PATH with your actual image path -->
-                <img src="previews/ai-digital-marketing-preview.jpg" alt="AI in Digital Marketing Certificate Preview">
+                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
+                <img src="ai-digital-marketing-preview.jpg" alt="AI in Digital Marketing Certificate Preview">
             </div>
             <div class="certificate-content">
                 <p class="certificate-name">Wiktoria Ożóg</p>
@@ -366,10 +371,6 @@
                 <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by University of Maryland, College Park and offered through Coursera</p>
                 <p class="certificate-date"><strong>Completion date:</strong> Jun 4, 2025</p>
                 <p class="certificate-id"><strong>File name:</strong> Coursera MB9I4VH75BFV.pdf</p>
-                <!-- REPLACE THIS PATH with your actual PDF path -->
-                <a href="pdfs/Coursera-MB9I4VH75BFV.pdf" target="_blank" class="certificate-link">
-                    <i class="fas fa-file-pdf"></i> View Certificate (PDF)
-                </a>
             </div>
         </div>
 
@@ -392,5 +393,58 @@
         <a href="index.html">Back to CV</a>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const pdfEmbed = document.getElementById('pdf-embed');
+        const viewerMessage = document.getElementById('viewer-message');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+        const pdfViewerSection = document.getElementById('pdf-viewer-section');
+
+        // Function to load PDF and update active state
+        function loadPdf(pdfUrl, clickedCard = null) {
+            if (pdfUrl) {
+                pdfEmbed.src = pdfUrl;
+                pdfEmbed.style.display = 'block'; // Show the embed
+                viewerMessage.style.display = 'none'; // Hide the message
+            } else {
+                pdfEmbed.src = ''; // Clear source
+                pdfEmbed.style.display = 'none'; // Hide the embed
+                viewerMessage.style.display = 'block'; // Show the message
+            }
+
+            // Remove 'active' class from all cards
+            certificateCards.forEach(card => card.classList.remove('active'));
+
+            // Add 'active' class to the clicked card
+            if (clickedCard) {
+                clickedCard.classList.add('active');
+            }
+        }
+
+        // Add click event listeners to each certificate card
+        certificateCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const pdfUrl = this.dataset.pdf; // Get PDF URL from data-pdf attribute
+                loadPdf(pdfUrl, this); // Load PDF and set this card as active
+
+                // Scroll to the PDF viewer section
+                pdfViewerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Initial load: Load the first certificate's PDF when the page loads
+        if (certificateCards.length > 0) {
+            const firstCard = certificateCards[0];
+            const firstPdfUrl = firstCard.dataset.pdf;
+            loadPdf(firstPdfUrl, firstCard);
+        } else {
+            // If no certificates are found, display a message
+            viewerMessage.textContent = "No certificates available to display.";
+            viewerMessage.style.display = 'block';
+            pdfEmbed.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>

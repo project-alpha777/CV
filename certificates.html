@@ -6,7 +6,7 @@
 <title>Wiktoria Ożóg - Certificates & Awards</title>
 <!-- Google Fonts: Montserrat for headings, Roboto for body text -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<!-- Font Awesome for icons (e.g., PDF icon, trophy icon) -->
+<!-- Font Awesome for icons (e.g., trophy icon) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
     /* General Styles */
@@ -25,7 +25,7 @@
 
     .container {
         width: 100%;
-        max-width: 1000px; /* Max width for the main content area */
+        max-width: 800px; /* Slightly narrower container for better readability with embedded PDFs */
         padding: 30px;
         box-sizing: border-box; /* Include padding in element's total width and height */
         background-color: #fff; /* White background for the content area */
@@ -70,62 +70,42 @@
         display: block; /* Ensure it takes full width */
     }
 
-    /* Certificate Grid Layout */
-    .certificate-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
-        gap: 30px; /* Space between cards */
-        justify-content: center; /* Center cards if they don't fill the row */
-        margin-bottom: 40px; /* Space before the next section */
-    }
-
-    /* Individual Certificate Card */
-    .certificate-card {
+    /* Individual Certificate Section (replaces certificate-card) */
+    .certificate-section {
         background-color: #ffffff;
         border: 1px solid #e0e0e0; /* Light grey border */
         border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for card elevation */
-        overflow: hidden; /* Ensures image corners are rounded with the card */
-        display: flex;
-        flex-direction: column; /* Stack content vertically */
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Smooth hover effect */
-    }
-
-    .certificate-card:hover {
-        transform: translateY(-5px); /* Lift card slightly on hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-    }
-
-    .certificate-preview {
-        width: 100%;
-        height: 200px; /* Fixed height for the preview image area */
-        background-color: #f0f0f0; /* Placeholder background if image not loaded */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border-bottom: 1px solid #e0e0e0; /* Separator between image and content */
-    }
-
-    .certificate-preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Covers the area, cropping if necessary to fill */
-        display: block;
-    }
-
-    .certificate-content {
-        padding: 20px;
-        flex-grow: 1; /* Allows content to take available space, pushing button to bottom */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for elevation */
+        padding: 25px;
+        margin-bottom: 30px; /* Space between certificate sections */
         display: flex;
         flex-direction: column;
+        align-items: center; /* Center content within the section */
+    }
+
+    .certificate-section:last-of-type {
+        margin-bottom: 0; /* No margin after the last certificate section */
+    }
+
+    .certificate-pdf-embed {
+        width: 100%;
+        height: 500px; /* Fixed height for the embedded PDF */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px; /* Space between PDF and details */
+        background-color: #f0f0f0; /* Placeholder background */
+    }
+
+    .certificate-details-content {
+        width: 100%; /* Ensure details take full width */
+        text-align: left; /* Align text to the left within details */
     }
 
     .certificate-name {
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         font-size: 1.1em;
-        color: #34495e; /* Slightly darker grey for name */
+        color: #34495e;
         margin-bottom: 5px;
     }
 
@@ -148,41 +128,15 @@
     .certificate-description strong,
     .certificate-date strong,
     .certificate-id strong {
-        color: #333; /* Darker color for labels */
+        color: #333;
         margin-right: 5px;
     }
 
-    .certificate-id {
-        margin-bottom: 15px; /* More space before the download button */
-    }
-
-    .certificate-link {
-        display: inline-flex; /* Use flex for icon and text alignment */
-        align-items: center;
-        background-color: #3498db; /* Blue button background */
-        color: #fff;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-        margin-top: auto; /* Pushes button to the bottom of the card */
-    }
-
-    .certificate-link i {
-        margin-right: 8px;
-    }
-
-    .certificate-link:hover {
-        background-color: #2980b9; /* Darker blue on hover */
-    }
-
-    /* Awards Section */
+    /* Awards Section (no changes from previous version) */
     .awards-section {
         margin-top: 40px;
         margin-bottom: 40px;
-        width: 100%; /* Ensure it takes full container width */
+        width: 100%;
     }
 
     .award-card {
@@ -193,15 +147,15 @@
         padding: 25px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center content horizontally */
+        align-items: center;
         text-align: center;
-        max-width: 600px; /* Limit width for a single award card */
-        margin: 0 auto; /* Center the award card */
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     .award-card i.fa-trophy {
         font-size: 3em;
-        color: #f39c12; /* Gold color for trophy icon */
+        color: #f39c12;
         margin-bottom: 20px;
     }
 
@@ -215,7 +169,7 @@
 
     .award-meta {
         font-size: 0.95em;
-        color: #7f8c8d; /* Lighter grey for meta info */
+        color: #7f8c8d;
         margin-bottom: 15px;
     }
 
@@ -230,7 +184,7 @@
         text-align: center;
         margin-top: 40px;
         padding-top: 20px;
-        border-top: 1px solid #eee; /* Separator line */
+        border-top: 1px solid #eee;
     }
 
     .back-to-cv a {
@@ -263,15 +217,11 @@
             margin-top: 30px;
             margin-bottom: 20px;
         }
-        .pdf-viewer {
+        .certificate-pdf-embed {
             height: 400px; /* Adjust height for smaller screens */
         }
-        .certificate-grid {
-            grid-template-columns: 1fr;
-        }
-        .certificate-card {
-            max-width: 400px;
-            margin: 0 auto;
+        .certificate-section {
+            padding: 20px;
         }
         .certificate-title {
             font-size: 1.2em;
@@ -300,14 +250,19 @@
         .header h1 {
             font-size: 1.8em;
         }
-        .certificate-content {
-            padding: 10px;
-        }
-        .certificate-preview {
-            height: 120px;
-        }
-        .pdf-viewer {
+        .certificate-pdf-embed {
             height: 300px;
+        }
+        .certificate-section {
+            padding: 15px;
+        }
+        .certificate-title {
+            font-size: 1.1em;
+        }
+        .certificate-description,
+        .certificate-date,
+        .certificate-id {
+            font-size: 0.85em;
         }
     }
 </style>
@@ -319,61 +274,42 @@
         <p>A collection of my completed courses, certifications, and distinctions.</p>
     </header>
 
-    <!-- PDF Viewer Section -->
-    <section class="pdf-viewer-section" id="pdf-viewer-section">
-        <h2>Selected Certificate</h2>
-        <embed id="pdf-embed" src="" type="application/pdf" class="pdf-viewer">
-        <p id="viewer-message" style="text-align: center; color: #777; margin-top: 15px; font-size: 0.9em;">Click on a certificate below to view its PDF.</p>
-    </section>
+    <h2 class="section-title">Certificates</h2>
 
-    <h2 class="section-title">All Certificates</h2>
-    <div class="certificate-grid" id="certificate-list">
-
-        <!-- Certificate Card 1: Google Ads for Beginners -->
-        <div class="certificate-card" data-pdf="Coursera%209GHB5ZVO6V8E.pdf">
-            <div class="certificate-preview">
-                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
-                <img src="google-ads-preview.jpg" alt="Google Ads Certificate Preview">
-            </div>
-            <div class="certificate-content">
-                <p class="certificate-name">Wiktoria Ożóg</p>
-                <h3 class="certificate-title">Google Ads for Beginners</h3>
-                <p class="certificate-description"><strong>Description:</strong> An online non-credit project authorized by Coursera Project Network and offered through Coursera</p>
-                <p class="certificate-date"><strong>Completion date:</strong> Jun 21, 2025</p>
-                <p class="certificate-id"><strong>Coursera ID:</strong> 9GHB5ZVO6V8E</p>
-            </div>
+    <!-- Certificate Section 1: Google Ads for Beginners -->
+    <div class="certificate-section">
+        <h3 class="certificate-title">Google Ads for Beginners</h3>
+        <embed src="Coursera%209GHB5ZVO6V8E.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-details-content">
+            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-description"><strong>Description:</strong> An online non-credit project authorized by Coursera Project Network and offered through Coursera</p>
+            <p class="certificate-date"><strong>Completion date:</strong> Jun 21, 2025</p>
+            <p class="certificate-id"><strong>Coursera ID:</strong> 9GHB5ZVO6V8E</p>
         </div>
+    </div>
 
-        <!-- Certificate Card 2: Strategic Management -->
-        <div class="certificate-card" data-pdf="Coursera%20CDI5964WMNRP.pdf">
-            <div class="certificate-preview">
-                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
-                <img src="strategic-management-preview.jpg" alt="Strategic Management Certificate Preview">
-            </div>
-            <div class="certificate-content">
-                <p class="certificate-name">Wiktoria Ożóg</p>
-                <h3 class="certificate-title">Strategic Management</h3>
-                <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by Copenhagen Business School and offered through Coursera</p>
-                <p class="certificate-date"><strong>Completion date:</strong> Jun 9, 2025</p>
-                <p class="certificate-id"><strong>Coursera ID:</strong> CDI5964WMNRP</p>
-            </div>
+    <!-- Certificate Section 2: Strategic Management -->
+    <div class="certificate-section">
+        <h3 class="certificate-title">Strategic Management</h3>
+        <embed src="Coursera%20CDI5964WMNRP.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-details-content">
+            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by Copenhagen Business School and offered through Coursera</p>
+            <p class="certificate-date"><strong>Completion date:</strong> Jun 9, 2025</p>
+            <p class="certificate-id"><strong>Coursera ID:</strong> CDI5964WMNRP</p>
         </div>
+    </div>
 
-        <!-- Certificate Card 3: AI in Digital Marketing -->
-        <div class="certificate-card" data-pdf="Coursera%20MB9I4VH75BFV.pdf">
-            <div class="certificate-preview">
-                <!-- OBRAZ PODGLĄDU - ZAKŁADAM, ŻE TEŻ JEST LUZEM W TYM SAMYM FOLDERZE -->
-                <img src="ai-digital-marketing-preview.jpg" alt="AI in Digital Marketing Certificate Preview">
-            </div>
-            <div class="certificate-content">
-                <p class="certificate-name">Wiktoria Ożóg</p>
-                <h3 class="certificate-title">AI in Digital Marketing</h3>
-                <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by University of Maryland, College Park and offered through Coursera</p>
-                <p class="certificate-date"><strong>Completion date:</strong> Jun 4, 2025</p>
-                <p class="certificate-id"><strong>File name:</strong> Coursera MB9I4VH75BFV.pdf</p>
-            </div>
+    <!-- Certificate Section 3: AI in Digital Marketing -->
+    <div class="certificate-section">
+        <h3 class="certificate-title">AI in Digital Marketing</h3>
+        <embed src="Coursera%20MB9I4VH75BFV.pdf" type="application/pdf" class="certificate-pdf-embed">
+        <div class="certificate-details-content">
+            <p class="certificate-name"><strong>Issued to:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-description"><strong>Description:</strong> An online non-credit course authorized by University of Maryland, College Park and offered through Coursera</p>
+            <p class="certificate-date"><strong>Completion date:</strong> Jun 4, 2025</p>
+            <p class="certificate-id"><strong>File name:</strong> Coursera MB9I4VH75BFV</p>
         </div>
-
     </div>
 
     <!-- Awards and Distinctions Section -->
@@ -393,58 +329,5 @@
         <a href="index.html">Back to CV</a>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const pdfEmbed = document.getElementById('pdf-embed');
-        const viewerMessage = document.getElementById('viewer-message');
-        const certificateCards = document.querySelectorAll('.certificate-card');
-        const pdfViewerSection = document.getElementById('pdf-viewer-section');
-
-        // Function to load PDF and update active state
-        function loadPdf(pdfUrl, clickedCard = null) {
-            if (pdfUrl) {
-                pdfEmbed.src = pdfUrl;
-                pdfEmbed.style.display = 'block'; // Show the embed
-                viewerMessage.style.display = 'none'; // Hide the message
-            } else {
-                pdfEmbed.src = ''; // Clear source
-                pdfEmbed.style.display = 'none'; // Hide the embed
-                viewerMessage.style.display = 'block'; // Show the message
-            }
-
-            // Remove 'active' class from all cards
-            certificateCards.forEach(card => card.classList.remove('active'));
-
-            // Add 'active' class to the clicked card
-            if (clickedCard) {
-                clickedCard.classList.add('active');
-            }
-        }
-
-        // Add click event listeners to each certificate card
-        certificateCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const pdfUrl = this.dataset.pdf; // Get PDF URL from data-pdf attribute
-                loadPdf(pdfUrl, this); // Load PDF and set this card as active
-
-                // Scroll to the PDF viewer section
-                pdfViewerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Initial load: Load the first certificate's PDF when the page loads
-        if (certificateCards.length > 0) {
-            const firstCard = certificateCards[0];
-            const firstPdfUrl = firstCard.dataset.pdf;
-            loadPdf(firstPdfUrl, firstCard);
-        } else {
-            // If no certificates are found, display a message
-            viewerMessage.textContent = "No certificates available to display.";
-            viewerMessage.style.display = 'block';
-            pdfEmbed.style.display = 'none';
-        }
-    });
-</script>
 </body>
 </html>

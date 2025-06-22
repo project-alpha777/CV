@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wiktoria Ożóg - Certificates & Awards</title>
+<title data-lang-en="Wiktoria Ożóg - Certificates & Awards" data-lang-pl="Wiktoria Ożóg - Certyfikaty i Nagrody">Wiktoria Ożóg - Certificates & Awards</title>
 <!-- Google Fonts: Montserrat for headings, Roboto for body text -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <!-- Font Awesome for icons (e.g., trophy icon, external link icon) -->
@@ -32,6 +32,29 @@
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         margin: 30px 0; /* Margin top/bottom for the main container */
         border-radius: 8px; /* Slightly rounded corners for the container */
+        position: relative; /* For positioning the language toggle */
+    }
+
+    /* Language Toggle Button */
+    .lang-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
+        z-index: 100; /* Ensure it's above other content */
+    }
+
+    .lang-toggle:hover {
+        background-color: #2980b9;
     }
 
     /* Header Section */
@@ -152,7 +175,7 @@
         margin-right: 5px;
     }
 
-    /* Awards Section (no changes from previous version) */
+    /* Awards Section */
     .awards-section {
         margin-top: 40px;
         margin-bottom: 40px;
@@ -223,6 +246,47 @@
         background-color: #2980b9;
     }
 
+    /* Print Specific Styles */
+    @media print {
+        .lang-toggle {
+            display: none; /* Hide the toggle button when printing */
+        }
+        body {
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            box-shadow: none;
+            margin: 0;
+            padding: 20mm;
+            width: 210mm;
+            min-height: 297mm;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            margin-bottom: 10px;
+        }
+        .certificate-section {
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+        .certificate-pdf-embed {
+            height: 300px; /* Adjust height for print */
+        }
+        .view-pdf-link {
+            display: none; /* Hide view PDF link when printing */
+        }
+        .award-card {
+            padding: 15px;
+        }
+        .back-to-cv {
+            display: none; /* Hide back to CV link when printing */
+        }
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .container {
@@ -285,80 +349,130 @@
 </head>
 <body>
 <div class="container">
+    <button id="langToggle" class="lang-toggle" data-lang-en="PLN" data-lang-pl="ENG">PLN</button>
+
     <header class="header">
-        <h1>Wiktoria Ożóg - Certificates & Awards</h1>
-        <p>A collection of my completed courses, certifications, and distinctions.</p>
+        <h1 data-lang-en="Wiktoria Ożóg - Certificates & Awards" data-lang-pl="Wiktoria Ożóg - Certyfikaty i Nagrody">Wiktoria Ożóg - Certificates & Awards</h1>
+        <p data-lang-en="A collection of my completed courses, certifications, and distinctions." data-lang-pl="Zbiór ukończonych kursów, certyfikatów i wyróżnień.">A collection of my completed courses, certifications, and distinctions.</p>
     </header>
 
-    <h2 class="section-title">Certificates</h2>
+    <h2 class="section-title" data-lang-en="Certificates" data-lang-pl="Certyfikaty">Certificates</h2>
 
     <!-- Certificate Section 1: Google Ads for Beginners -->
     <div class="certificate-section">
-        <h3 class="certificate-title">Google Ads for Beginners</h3>
+        <h3 class="certificate-title" data-lang-en="Google Ads for Beginners" data-lang-pl="Google Ads dla Początkujących">Google Ads for Beginners</h3>
         <div class="certificate-pdf-embed-wrapper">
             <embed src="Coursera%209GHB5ZVO6V8E.pdf" type="application/pdf" class="certificate-pdf-embed">
         </div>
-        <a href="Coursera%209GHB5ZVO6V8E.pdf" target="_blank" class="view-pdf-link">
+        <a href="Coursera%209GHB5ZVO6V8E.pdf" target="_blank" class="view-pdf-link" data-lang-en="View Full PDF" data-lang-pl="Zobacz pełny PDF">
             <i class="fas fa-external-link-alt"></i> View Full PDF
         </a>
         <div class="certificate-details-content">
-            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (Coursera Project Network)</p>
-            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 21, 2025</p>
-            <p class="certificate-detail-item"><strong>ID:</strong> 9GHB5ZVO6V8E</p>
+            <p class="certificate-detail-item" data-lang-en="Name: Wiktoria Ożóg" data-lang-pl="Imię i Nazwisko: Wiktoria Ożóg"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item" data-lang-en="Platform: Coursera (Coursera Project Network)" data-lang-pl="Platforma: Coursera (Coursera Project Network)"><strong>Platform:</strong> Coursera (Coursera Project Network)</p>
+            <p class="certificate-detail-item" data-lang-en="Completion date: Jun 21, 2025" data-lang-pl="Data ukończenia: 21 czerwca 2025"><strong>Completion date:</strong> Jun 21, 2025</p>
+            <p class="certificate-detail-item" data-lang-en="ID: 9GHB5ZVO6V8E" data-lang-pl="ID: 9GHB5ZVO6V8E"><strong>ID:</strong> 9GHB5ZVO6V8E</p>
         </div>
     </div>
 
     <!-- Certificate Section 2: Strategic Management -->
     <div class="certificate-section">
-        <h3 class="certificate-title">Strategic Management</h3>
+        <h3 class="certificate-title" data-lang-en="Strategic Management" data-lang-pl="Zarządzanie Strategiczne">Strategic Management</h3>
         <div class="certificate-pdf-embed-wrapper">
             <embed src="Coursera%20CDI5964WMNRP.pdf" type="application/pdf" class="certificate-pdf-embed">
         </div>
-        <a href="Coursera%20CDI5964WMNRP.pdf" target="_blank" class="view-pdf-link">
+        <a href="Coursera%20CDI5964WMNRP.pdf" target="_blank" class="view-pdf-link" data-lang-en="View Full PDF" data-lang-pl="Zobacz pełny PDF">
             <i class="fas fa-external-link-alt"></i> View Full PDF
         </a>
         <div class="certificate-details-content">
-            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (Copenhagen Business School)</p>
-            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 9, 2025</p>
-            <p class="certificate-detail-item"><strong>ID:</strong> CDI5964WMNRP</p>
+            <p class="certificate-detail-item" data-lang-en="Name: Wiktoria Ożóg" data-lang-pl="Imię i Nazwisko: Wiktoria Ożóg"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item" data-lang-en="Platform: Coursera (Copenhagen Business School)" data-lang-pl="Platforma: Coursera (Copenhagen Business School)"><strong>Platform:</strong> Coursera (Copenhagen Business School)</p>
+            <p class="certificate-detail-item" data-lang-en="Completion date: Jun 9, 2025" data-lang-pl="Data ukończenia: 9 czerwca 2025"><strong>Completion date:</strong> Jun 9, 2025</p>
+            <p class="certificate-detail-item" data-lang-en="ID: CDI5964WMNRP" data-lang-pl="ID: CDI5964WMNRP"><strong>ID:</strong> CDI5964WMNRP</p>
         </div>
     </div>
 
     <!-- Certificate Section 3: AI in Digital Marketing -->
     <div class="certificate-section">
-        <h3 class="certificate-title">AI in Digital Marketing</h3>
+        <h3 class="certificate-title" data-lang-en="AI in Digital Marketing" data-lang-pl="AI w Marketingu Cyfrowym">AI in Digital Marketing</h3>
         <div class="certificate-pdf-embed-wrapper">
             <embed src="Coursera%20MB9I4VH75BFV.pdf" type="application/pdf" class="certificate-pdf-embed">
         </div>
-        <a href="Coursera%20MB9I4VH75BFV.pdf" target="_blank" class="view-pdf-link">
+        <a href="Coursera%20MB9I4VH75BFV.pdf" target="_blank" class="view-pdf-link" data-lang-en="View Full PDF" data-lang-pl="Zobacz pełny PDF">
             <i class="fas fa-external-link-alt"></i> View Full PDF
         </a>
         <div class="certificate-details-content">
-            <p class="certificate-detail-item"><strong>Name:</strong> Wiktoria Ożóg</p>
-            <p class="certificate-detail-item"><strong>Platform:</strong> Coursera (University of Maryland, College Park)</p>
-            <p class="certificate-detail-item"><strong>Completion date:</strong> Jun 4, 2025</p>
-            <p class="certificate-detail-item"><strong>File:</strong> Coursera MB9I4VH75BFV.pdf</p>
+            <p class="certificate-detail-item" data-lang-en="Name: Wiktoria Ożóg" data-lang-pl="Imię i Nazwisko: Wiktoria Ożóg"><strong>Name:</strong> Wiktoria Ożóg</p>
+            <p class="certificate-detail-item" data-lang-en="Platform: Coursera (University of Maryland, College Park)" data-lang-pl="Platforma: Coursera (University of Maryland, College Park)"><strong>Platform:</strong> Coursera (University of Maryland, College Park)</p>
+            <p class="certificate-detail-item" data-lang-en="Completion date: Jun 4, 2025" data-lang-pl="Data ukończenia: 4 czerwca 2025"><strong>Completion date:</strong> Jun 4, 2025</p>
+            <p class="certificate-detail-item" data-lang-en="File: Coursera MB9I4VH75BFV.pdf" data-lang-pl="Plik: Coursera MB9I4VH75BFV.pdf"><strong>File:</strong> Coursera MB9I4VH75BFV.pdf</p>
         </div>
     </div>
 
     <!-- Awards and Distinctions Section -->
-    <h2 class="section-title">Awards and Distinctions</h2>
+    <h2 class="section-title" data-lang-en="Awards and Distinctions" data-lang-pl="Nagrody i Wyróżnienia">Awards and Distinctions</h2>
     <div class="awards-section">
         <div class="award-card">
             <i class="fas fa-trophy"></i>
-            <h3 class="award-title">Effie 2024 – Żywiec Zdrój – Bronze</h3>
-            <p class="award-meta">November 2024 | EssenceMediacom | Category: Beverages Non-Alcoholic</p>
-            <p class="award-description">
+            <h3 class="award-title" data-lang-en="Effie 2024 – Żywiec Zdrój – Bronze" data-lang-pl="Effie 2024 – Żywiec Zdrój – Brąz">Effie 2024 – Żywiec Zdrój – Bronze</h3>
+            <p class="award-meta" data-lang-en="November 2024 | EssenceMediacom | Category: Beverages Non-Alcoholic" data-lang-pl="Listopad 2024 | EssenceMediacom | Kategoria: Napoje Bezalkoholowe">November 2024 | EssenceMediacom | Category: Beverages Non-Alcoholic</p>
+            <p class="award-description" data-lang-en="The campaign: &quot;Moc orzeźwienia, zero słodzenia&quot; for Żywiec Zdrój was awarded the Bronze Effie in the Beverages Non-Alcoholic category during the prestigious Effie 2024 competition. As a member of the team, I had the pleasure of participating in the campaign, which resulted in industry recognition and success." data-lang-pl="Kampania: &quot;Moc orzeźwienia, zero słodzenia&quot; dla Żywiec Zdrój została nagrodzona Brązowym Effie w kategorii Napoje Bezalkoholowe podczas prestiżowego konkursu Effie 2024. Jako członek zespołu, miałem przyjemność uczestniczyć w kampanii, co zaowocowało uznaniem branży i sukcesem.">
                 The campaign: "Moc orzeźwienia, zero słodzenia" for Żywiec Zdrój was awarded the Bronze Effie in the Beverages Non-Alcoholic category during the prestigious Effie 2024 competition. As a member of the team, I had the pleasure of participating in the campaign, which resulted in industry recognition and success.
             </p>
         </div>
     </div>
 
     <div class="back-to-cv">
-        <a href="index.html">Back to CV</a>
+        <a href="index.html" data-lang-en="Back to CV" data-lang-pl="Powrót do CV">Back to CV</a>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const langToggleBtn = document.getElementById('langToggle');
+        const translatableElements = document.querySelectorAll('[data-lang-en], [data-lang-pl]');
+
+        // Determine initial language from localStorage or default to English
+        let currentLang = localStorage.getItem('cvLang') || 'en';
+
+        const updateContent = () => {
+            translatableElements.forEach(element => {
+                if (currentLang === 'en') {
+                    // Use data-lang-en if available, otherwise keep current text
+                    element.textContent = element.dataset.langEn || element.textContent;
+                    // Handle placeholder attributes if any
+                    if (element.placeholder && element.dataset.langEnPlaceholder) {
+                        element.placeholder = element.dataset.langEnPlaceholder;
+                    }
+                } else {
+                    // Use data-lang-pl if available, otherwise keep current text
+                    element.textContent = element.dataset.langPl || element.textContent;
+                    if (element.placeholder && element.dataset.langPlPlaceholder) {
+                        element.placeholder = element.dataset.langPlPlaceholder;
+                    }
+                }
+            });
+
+            // Update button text
+            langToggleBtn.textContent = (currentLang === 'en') ? 'PLN' : 'ENG';
+
+            // Update title tag (special handling as it's not directly in translatableElements)
+            const titleElement = document.querySelector('title');
+            if (titleElement) {
+                titleElement.textContent = (currentLang === 'en') ? titleElement.dataset.langEn : titleElement.dataset.langPl;
+            }
+        };
+
+        // Initial content update based on stored preference or default
+        updateContent();
+
+        // Add event listener for the toggle button
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = (currentLang === 'en') ? 'pl' : 'en';
+            localStorage.setItem('cvLang', currentLang); // Save preference for next visit
+            updateContent(); // Update content to new language
+        });
+    });
+</script>
 </body>
 </html>
